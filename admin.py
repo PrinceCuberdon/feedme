@@ -22,7 +22,7 @@
 
 from django.contrib import admin
 
-from feedme.models import FeedMe, SearchEngine
+from .models import FeedMe, SearchEngine
 
 class FeedMeAdmin(admin.ModelAdmin):
     list_display = ('__unicode__','creation', 'url', )
