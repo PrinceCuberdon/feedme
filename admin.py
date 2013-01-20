@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # 
-# Band Cochon (c) Prince Cuberdon 2011 and Later <princecuberdon@bandcochon.fr>
+# FeedMe (c) Prince Cuberdon 2011 and Later <princecuberdon@bandcochon.fr>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
