@@ -24,7 +24,7 @@ FeedMe - Django Module for feeding
 """
 
 from django.db import models
-from . import ping_all
+from .pingall import ping_all
 
 class FeedMe(models.Model):
     """ The feed model. Store all here """ 
@@ -41,6 +41,7 @@ class FeedMe(models.Model):
     
     class Meta:
         ordering = ('-creation', )
+        db_table="feedme_feedme"
         
 
     
@@ -68,3 +69,7 @@ class SearchEngine(models.Model):
     
     def __unicode__(self):
         return self.name
+    
+    class Meta:
+        db_table="feedme_searchengine"
+    

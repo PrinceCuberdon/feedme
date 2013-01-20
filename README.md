@@ -1,8 +1,8 @@
 FeedMe
 ======
 
-Django automatic RSS/ATOM builder. Also a multiple web search engine pinger
-
+Django automatic RSS/ATOM builder. Also a multiple web search engine pinger. This package is designed to
+run with the http://www.bandcochon.re web site, so, there's not `setup.py` file to build the package.
 
 Installation
 ------------
