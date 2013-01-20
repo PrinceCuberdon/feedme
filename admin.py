@@ -18,9 +18,15 @@
 
 from django.contrib import admin
 
-from feedme.models import FeedMe
+from feedme.models import FeedMe, SearchEngine
 
 class FeedMeAdmin(admin.ModelAdmin):
     list_display = ('__unicode__','creation', 'url', )
     date_hierarchy = 'creation'
+    
+class SearchEngineAdmin(admin.ModelAdmin):
+    list_display = ('__unicode__', 'url', 'ping_count', 'active', )
+    list_editable = ('active', )
+
 admin.site.register(FeedMe, FeedMeAdmin)
+admin.site.register(SearchEngine, SearchEngineAdmin)

@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # 
-# Band Cochon (c) Prince Cuberdon 2011 and Later <princecuberdon@bandcochon.fr>
+# FeedMe (c) Prince Cuberdon 2011 and Later <princecuberdon@bandcochon.fr>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -25,13 +25,12 @@ import threading
 from django.contrib.syndication.views import Feed
 from django.conf import settings
 
-from .models import FeedMe
-
 def feedme(url, *args, **kwargs):
+    from .models import FeedMe
     FeedMe.objects.create(
          creation = datetime.datetime.now(),
          title = kwargs.get('title', 'Default Title. Please Feed Me!'),
-         content = kwargs.get("content", 'Default Title. Please Feed Me!'),
+         content = kwargs.get("content", 'Default Content. Please Feed Me!'),
          url = url
     )    
     
