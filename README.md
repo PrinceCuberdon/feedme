@@ -76,8 +76,10 @@ class Post(PingModel):
     def save(self, \*args, \*\*kwargs):
         """ Save your feed """
         feedme(self.get_absolute_url(), # The source URL. The user go there form its feed reader
-               title=self.title,        # title: The feed item title. The default is "Default Title. Please Feed Me!"
-               content=self.content)    # content: The feed content (may be in HTML). The default content is : "Default Content. Please Feed Me!"
+               title=self.title,        # title: The feed item title.
+                                        #   The default is "Default Title. Please Feed Me!"
+               content=self.content)    # content: The feed content (may be in HTML).
+                                        #   The default content is : "Default Content. Please Feed Me!"
 ```
 
 That's all.
