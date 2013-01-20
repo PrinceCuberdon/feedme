@@ -1,4 +1,4 @@
-feedme
+FeedMe
 ======
 
 Django automatic RSS/ATOM builder. Also a multiple web search engine pinger
@@ -7,10 +7,10 @@ Django automatic RSS/ATOM builder. Also a multiple web search engine pinger
 Installation
 ------------
 
-After forking or downloading add "feedme" in the Django INSTALLED_APPS list in settings file. 
+After forking or downloading add "feedme" in the Django `INSTALLED_APPS` list in settings file. 
 Then launch manage.py syncdb in a shell to create needed tables.
 
-Still in the settings.py file create a class called FEEDME_CONFIG which contains two fields: Title and Description (see above)
+Still in the `settings.py` file create a class called `FEEDME_CONFIG` which contains two fields: Title and Description (see above)
 
 ```python
 class FEEDME_CONFIG:
@@ -18,4 +18,8 @@ class FEEDME_CONFIG:
     Description = "Every body enjoy demos"
 ```
 
+Then you must sychronize the database with `./manage.py syncdb`
+
+Using it
+--------
 
