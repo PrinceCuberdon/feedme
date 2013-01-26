@@ -23,6 +23,7 @@
 FeedMe - Feed Generator
 """
 
+import datetime
 
 from django.contrib.syndication.views import Feed
 from django.conf import settings
