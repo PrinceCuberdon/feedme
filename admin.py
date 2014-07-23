@@ -24,10 +24,12 @@ from django.contrib import admin
 
 from .models import FeedMe, SearchEngine
 
+
 class FeedMeAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__','creation', 'url', )
-    date_hierarchy = 'creation'
+    list_display = ('__unicode__', 'pub_date', 'url', )
+    date_hierarchy = 'pub_date'
     
+
 class SearchEngineAdmin(admin.ModelAdmin):
     list_display = ('__unicode__', 'url', 'ping_count', 'active', )
     list_editable = ('active', )

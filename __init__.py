@@ -23,32 +23,35 @@
 FeedMe - Feed Generator
 """
 
-import datetime
-
 from django.contrib.syndication.views import Feed
 from django.conf import settings
 
 from .models import FeedMe
 
+
 def feedme(url, *args, **kwargs):
+    """
+    Create a feed me object (convinient function)
+    @param url: The page URL
+    @return: None
+    """
     FeedMe.objects.create(
-         creation = datetime.datetime.now(),
-         title = kwargs.get('title', 'Default Title. Please Feed Me!'),
-         content = kwargs.get("content", 'Default Content. Please Feed Me!'),
-         url = url
+        title=kwargs.get('title', 'Default Title. Please Feed Me!'),
+        content=kwargs.get("content", 'Default Content. Please Feed Me!'),
+        url=url
     )    
-    
+
+
 class FeedGenerator(Feed):
     title = settings.FEEDME_CONFIG.Title
     link = '/'
     description = settings.FEEDME_CONFIG.Description
     
     def items(self):
-        return FeedMe.objects.all()[:20]
+        return list(FeedMe.objects.order_by('-pub_date').all()[:20])
     
     def item_title(self, item):
         return item.title
     
     def item_description(self, item):
         return item.content
-

@@ -26,9 +26,11 @@ FeedMe - Django Module for feeding
 from django.db import models
 from .pingall import ping_all
 
+
 class FeedMe(models.Model):
     """ The feed model. Store all here """ 
     creation = models.DateField(auto_now=True)
+    pub_date = models.DateTimeField(auto_now=True, null=True, blank=True)
     title = models.CharField(max_length=100)
     content = models.TextField()
     url = models.CharField(max_length=140)
@@ -40,11 +42,10 @@ class FeedMe(models.Model):
         return self.url
     
     class Meta:
-        ordering = ('-creation', )
-        db_table="feedme_feedme"
-        
+        ordering = ('-pub_date', )
+        # app_label = 'feedme'
 
-    
+
 class PingModel(models.Model):
     """ Each model who needs to ping search engine must derivate from
     PingModel
@@ -70,6 +71,5 @@ class SearchEngine(models.Model):
     def __unicode__(self):
         return self.name
     
-    class Meta:
-        db_table="feedme_searchengine"
-    
+    # class Meta:
+        # app_label = 'feedme'
