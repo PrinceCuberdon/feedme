@@ -24,6 +24,7 @@ FeedMe - Django Module for feeding
 """
 
 from django.db import models
+
 from .pingall import ping_all
 
 
@@ -43,7 +44,7 @@ class FeedMe(models.Model):
     
     class Meta:
         ordering = ('-pub_date', )
-        # app_label = 'feedme'
+        app_label = 'feedme'
 
 
 class PingModel(models.Model):
@@ -70,6 +71,6 @@ class SearchEngine(models.Model):
     
     def __unicode__(self):
         return self.name
-    
-    # class Meta:
-        # app_label = 'feedme'
+
+    class Meta:
+        app_label = 'feedme'
