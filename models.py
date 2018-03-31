@@ -30,7 +30,7 @@ from .pingall import ping_all
 
 class FeedMe(models.Model):
     """ The feed model. Store all here """ 
-    creation = models.DateField(auto_now=True)
+    creation = models.DateField(auto_now=True, blank=True, null=True)
     pub_date = models.DateTimeField(auto_now=True, null=True, blank=True)
     title = models.CharField(max_length=100)
     content = models.TextField()
@@ -54,7 +54,7 @@ class PingModel(models.Model):
     
     def save(self, *args, **kwargs):
         """ Ping the search engines """
-        ping_all()
+        #ping_all()
         super(PingModel, self).save(*args, **kwargs)
 
     class Meta:

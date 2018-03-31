@@ -23,10 +23,11 @@
 pingall file avoid cross-importation.
 """
 
-import datetime
 import threading
+
 from django.contrib.sitemaps import ping_google
 from django.contrib.sites.models import Site
+
 
 def ping_all():
     """
@@ -42,7 +43,7 @@ def ping_all():
 
     def pa():
         engines = SearchEngine.objects.filter(active=True).only('name', 'url')
-        
+
         for engine in list(engines):
             try:
                 ping_google(sitemap_url=sitemap_url, ping_url=engine.url)
@@ -50,11 +51,9 @@ def ping_all():
             except:
                 # Don't care about errors. Just notice it
                 pinged = False
-            
+
             if pinged:
                 engine.ping_count += 1
                 engine.save()
-        
+
     threading.Thread(target=pa).start()
-
-
